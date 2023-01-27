@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_rate_limit.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'decorators.settings')
 
 application = get_wsgi_application()

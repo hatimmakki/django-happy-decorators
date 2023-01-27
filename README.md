@@ -17,11 +17,17 @@ To use the rate_limit decorator, import it from the package and apply it to a vi
 ```python
 from django_rate_limit.decorators import rate_limit
 
-@rate_limit(num_requests=100, time_frame=3600, redirect_url='/rate_limit_exceeded')
+@rate_limit(num_requests=100, time_frame=3600, redirect_url='/rate_limit_exceeded', mode='ip')
 def my_view(request):
     # View logic goes here
 
 ```
+
+# Modes:
+
+- ip: limits the number of requests per IP address
+- user: limits the number of requests per user
+- all: limits the number of requests
 
 In the example above, the view will only allow 100 requests per hour and when the limit is reached it will redirect the user to '/rate_limit_exceeded'
 

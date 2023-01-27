@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'django_rate_limit.urls'
+ROOT_URLCONF = 'decorators.urls'
 
 TEMPLATES = [
     {

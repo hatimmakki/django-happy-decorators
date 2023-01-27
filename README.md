@@ -1,13 +1,25 @@
-# Django Rate Limit
+# Django Happy Decorators
 
-Django Rate Limit is a package that provides a decorator for views that limits the number of requests a user can make to a specific view within a given time frame, also it allows to redirect the user to a specific url when the limit is reached
+[![Build Status](https://travis-ci.org/rodrigobdz/django-happy-decorators.svg?branch=master)](https://travis-ci.org/rodrigobdz/django-happy-decorators)
+[![Coverage Status](https://coveralls.io/repos/github/rodrigobdz/django-happy-decorators/badge.svg?branch=master)](https://coveralls.io/github/rodrigobdz/django-happy-decorators?branch=master)
+[![PyPI version](https://badge.fury.io/py/django-happy-decorators.svg)](https://badge.fury.io/py/django-happy-decorators)
+[![Documentation Status](https://readthedocs.org/projects/django-happy-decorators/badge/?version=latest)](https://django-happy-decorators.readthedocs.io/en/latest/?badge=latest)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+
+# Overview
+
+Django Happy Decorators is a collection of useful decorators for Django.
+
+# Decorators
+
+- `rate_limit`: Rate limit a view function based on IP address, user or all requests.
 
 # Installation
 
 You can install Django Rate Limit using pip:
 
-`pip install django-rate-limit`
+`pip install django_happy_decorators`
 
 
 # Usage

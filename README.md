@@ -60,3 +60,4 @@ We welcome contributions to Django Rate Limit. If you want to contribute, please
 Django Rate Limit is released under the MIT License.
 
 This is just a sample and you can adjust the content as per your package and also add more details like screenshots, sample code etc.
+

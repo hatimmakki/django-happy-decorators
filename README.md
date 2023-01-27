@@ -9,7 +9,7 @@
 
 # Overview
 
-Django Happy Decorators is a collection of useful decorators for Django.
+Happy decorators for Django is a set of decorators for Django apps and views to make your life easier.
 
 # Decorators
 
@@ -29,11 +29,28 @@ To use the rate_limit decorator, import it from the package and apply it to a vi
 ```python
 from django_rate_limit.decorators import rate_limit
 
-@rate_limit(num_requests=100, time_frame=3600, redirect_url='/rate_limit_exceeded', mode='ip')
+@rate_limit(num_requests=100, time_frame=60, redirect_url='/rate_limit_exceeded', mode='ip')
 def my_view(request):
     # View logic goes here
 
 ```
+
+The previous example will limit the number of requests to the view to 100 per hour. If the limit is reached, the user will be redirected to '/rate_limit_exceeded'.
+
+Other Example: 
+
+```python
+from django_rate_limit.decorators import rate_limit
+
+@rate_limit(num_requests=10000, time_frame=1, redirect_url='/rate_limit_exceeded', mode='all')
+def my_view(request):
+    # View logic goes here
+
+```
+
+The previous example will limit the number of requests to the view to 10k/min (10000 requests per minute). If the limit is reached, the user will be redirected to '/rate_limit_exceeded'. This could be useful if you know your server limits and want to prevent it from crashing."
+
+
 
 # Modes:
 

@@ -3,13 +3,13 @@ repo_url: https://github.com/hatimmakki/django-happy-decorators.git
 
 nav:
   - Readme: ../../README.md
-plugins:
-  - markmap:
-    base_path: docs
-    encoding: utf-8
-    file_extension: .mm.md
-    d3_version: 6.7.0
-    lib_version: 0.14.1
-    view_version: 0.14.0
+# plugins:
+#   - markmap:
+#     base_path: docs
+#     encoding: utf-8
+#     file_extension: .mm.md
+#     d3_version: 6.7.0
+#     lib_version: 0.14.1
+#     view_version: 0.14.0
     
 docs_dir: docs

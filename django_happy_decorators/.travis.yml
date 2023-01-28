@@ -1,0 +1,9 @@
+language: python
+python:
+  - "3.9"
+install:
+  - pip install -r docs/requirements.txt
+script:
+  - source ../venv/bin/activate
+  - cd django_happy_decorators
+  - python manage.py test decorators

@@ -11,9 +11,11 @@
 
 Happy decorators for Django is a set of decorators for Django apps and views to make your life easier.
 
+
 # Decorators
 
 - `rate_limit`: Rate limit a view function based on IP address, user or all requests.
+
 
 # Installation
 
@@ -59,7 +61,7 @@ The previous example will limit the number of requests to the view to 10k/min (1
 - time_minutes: the time frame in which the number of requests is allowed
 - redirect_url: the url to redirect the user to when the limit is reached
 - mode: the mode to use to limit the number of requests. It can be one of the following values: ip, user or all. Default is 'all'.
-- error_message: the error message to display when the limit is reached. Default is 'You have exceeded the maximum number of requests allowed.'
+- error_message: the error message to return with the response when the limit is reached. Default is 'You have exceeded the maximum number of requests allowed.' Note that this apply only if redirect_url is not set.
 
 
 # Modes:
@@ -81,6 +83,7 @@ https://django-rate-limit.readthedocs.io/
 # Contributing
 
 We welcome contributions to Django Rate Limit. If you want to contribute, please read our contributing guidelines for more information.
+
 
 # License
 

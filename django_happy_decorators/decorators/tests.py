@@ -82,6 +82,24 @@ class TestRateLimit(TestCase):
         resp = test_function(request)
         self.assertEqual(resp.status_code, 429)
 
+    def test_rate_limit_error_message(self):
+        error_message = 'TESTING MESSAGE OF Rate limit exceeded'
+        
+        @rate_limit(num_requests=2, time_minutes=1, 
+                    mode='all',
+                    error_message=error_message)
+        def test_function(request):
+            return HttpResponse()
+
+        request = self.factory.get('/test_rate_limit')
+        request.user = self.user
+
+        # make request and call test_function a few times to test rate limiting
+        for i in range(110):
+            resp = test_function(request)
+            if i > 2:
+                self.assertEqual(resp.status_code, 429)
+                self.assertEqual(resp.content, error_message.encode())
         
 # command to run tests
 # python3 manage.py test

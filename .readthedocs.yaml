@@ -8,13 +8,13 @@ build:
     python: "3.9"
 
 mkdocs:
-  configuration: mkdocs.yml
+  configuration: './django_happy_decorators/mkdocs.yml'
   fail_on_warning: false
 
 # Optionally declare the Python requirements required to build your docs
 python:
   install:
-    - requirements: docs/requirements.txt
+    - requirements: './django_happy_decorators/docs/requirements.txt'
     - method: pip
       path: .
       extra_requirements:

@@ -1,5 +1,5 @@
 """
-WSGI config for django_rate_limit project.
+WSGI config for decorators project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

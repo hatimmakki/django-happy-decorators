@@ -27,8 +27,9 @@ You can install Django Rate Limit using pip:
 To use the rate_limit decorator, import it from the package and apply it to a view function. The decorator accepts three parameters: num_requests, time_frame and redirect_url.
 
 ```python
-from django_rate_limit.decorators import rate_limit
+from django_happy_decorators.decorators.rate_limit import rate_limit
 
+# Only add this line 👇 to limit the number of requests to the view
 @rate_limit(num_requests=100, time_frame=60, redirect_url='/rate_limit_exceeded', mode='ip')
 def my_view(request):
     # View logic goes here
@@ -40,7 +41,8 @@ The previous example will limit the number of requests to the view to 100 per ho
 Other Example: 
 
 ```python
-from django_rate_limit.decorators import rate_limit
+from django_happy_decorators.decorators.rate_limit import rate_limit
+
 
 @rate_limit(num_requests=10000, time_frame=1, redirect_url='/rate_limit_exceeded', mode='all')
 def my_view(request):
@@ -50,6 +52,14 @@ def my_view(request):
 
 The previous example will limit the number of requests to the view to 10k/min (10000 requests per minute). If the limit is reached, the user will be redirected to '/rate_limit_exceeded'. This could be useful if you know your server limits and want to prevent it from crashing."
 
+
+# Parameters
+
+- num_requests: the number of requests allowed per time_frame
+- time_minutes: the time frame in which the number of requests is allowed
+- redirect_url: the url to redirect the user to when the limit is reached
+- mode: the mode to use to limit the number of requests. It can be one of the following values: ip, user or all. Default is 'all'.
+- error_message: the error message to display when the limit is reached. Default is 'You have exceeded the maximum number of requests allowed.'
 
 
 # Modes:

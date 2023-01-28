@@ -7,7 +7,8 @@ from django.shortcuts import redirect
 def rate_limit(num_requests: int, 
                time_minutes: int, 
                redirect_url: str=None,
-               mode='IP'):
+               mode='IP',
+               error_message: str= "You have exceeded the maximum number of requests allowed."):
     """
         Decorator to limit the number of requests a user can make to a specific view within a given time frame.
             When the limit is reached, the user will be redirected to the specified redirect_url.
@@ -44,10 +45,14 @@ def rate_limit(num_requests: int,
             if requests:
                 if requests >= num_requests:
                     if redirect_url:
-                        return redirect(redirect_url)
+                        # redirect with a 429 status code
+                        red = redirect(redirect_url)
+                        red.status_code = 429
+                        return red
                     else:
-
-                        return HttpResponse("You have been rate limited.")
+                        res = HttpResponse(error_message)
+                        res.status_code = 429
+                        return res
                 else:
                     cache.set(key, requests+1, time_minutes*60)
             else:

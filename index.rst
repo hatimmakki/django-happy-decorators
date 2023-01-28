@@ -1,4 +1,6 @@
-# Django Happy Decorators
+$project
+========
+
 
 [![Build Status](https://travis-ci.org/rodrigobdz/django-happy-decorators.svg?branch=master)](https://travis-ci.org/rodrigobdz/django-happy-decorators)
 [![Coverage Status](https://coveralls.io/repos/github/rodrigobdz/django-happy-decorators/badge.svg?branch=master)](https://coveralls.io/github/rodrigobdz/django-happy-decorators?branch=master)
@@ -7,24 +9,28 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-# Overview
+Overview
+--------
 
 Happy decorators for Django is a set of decorators for Django apps and views to make your life easier.
 
 
-# Decorators
+Decorators
+----------
 
 - `rate_limit`: Rate limit a view function based on IP address, user or all requests.
 
 
-# Installation
+Installation
+------------
 
 You can install Django Rate Limit using pip:
 
 `pip install django_happy_decorators`
 
 
-# Usage
+Usage
+-----
 
 To use the rate_limit decorator, import it from the package and apply it to a view function. The decorator accepts three parameters: num_requests, time_frame and redirect_url.
 
@@ -55,7 +61,8 @@ def my_view(request):
 The previous example will limit the number of requests to the view to 10k/min (10000 requests per minute). If the limit is reached, the user will be redirected to '/rate_limit_exceeded'. This could be useful if you know your server limits and want to prevent it from crashing."
 
 
-# Parameters
+Parameters
+----------
 
 - num_requests: the number of requests allowed per time_frame
 - time_minutes: the time frame in which the number of requests is allowed
@@ -64,7 +71,8 @@ The previous example will limit the number of requests to the view to 10k/min (1
 - error_message: the error message to return with the response when the limit is reached. Default is 'You have exceeded the maximum number of requests allowed.' Note that this apply only if redirect_url is not set.
 
 
-# Modes:
+Modes:
+------
 
 - ip: limits the number of requests per IP address
 - user: limits the number of requests per user
@@ -73,19 +81,22 @@ The previous example will limit the number of requests to the view to 10k/min (1
 In the example above, the view will only allow 100 requests per hour and when the limit is reached it will redirect the user to '/rate_limit_exceeded'
 
 
-# Documentation
+Documentation
+-------------
 
 For more information on how to use Django Rate Limit, please refer to the documentation at:
 
 https://django-rate-limit.readthedocs.io/
 
 
-# Contributing
+Contributing
+------------
 
 We welcome contributions to Django Rate Limit. If you want to contribute, please read our contributing guidelines for more information.
 
 
-# License
+License
+-------
 
 Django Rate Limit is released under the MIT License.
 

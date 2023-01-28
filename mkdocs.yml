@@ -2,6 +2,6 @@ site_name: Django Rate Limit
 repo_url: https://github.com/hatimmakki/django-happy-decorators.git
 
 nav:
-- Readme: ./README.md
+  - Readme: 'README.md'
 
 docs_dir: docs

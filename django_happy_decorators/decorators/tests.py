@@ -101,5 +101,6 @@ class TestRateLimit(TestCase):
                 self.assertEqual(resp.status_code, 429)
                 self.assertEqual(resp.content, error_message.encode())
         
+        
 # command to run tests
 # python3 manage.py test

@@ -24,7 +24,8 @@ You can install Django Rate Limit using pip:
 `pip install django_happy_decorators`
 
 
-# Usage
+# Rate Limit
+## Usage
 
 To use the rate_limit decorator, import it from the package and apply it to a view function. The decorator accepts three parameters: num_requests, time_frame and redirect_url.
 
@@ -55,7 +56,7 @@ def my_view(request):
 The previous example will limit the number of requests to the view to 10k/min (10000 requests per minute). If the limit is reached, the user will be redirected to '/rate_limit_exceeded'. This could be useful if you know your server limits and want to prevent it from crashing."
 
 
-# Parameters
+## Parameters
 
 - num_requests: the number of requests allowed per time_frame
 - time_minutes: the time frame in which the number of requests is allowed
@@ -64,7 +65,7 @@ The previous example will limit the number of requests to the view to 10k/min (1
 - error_message: the error message to return with the response when the limit is reached. Default is 'You have exceeded the maximum number of requests allowed.' Note that this apply only if redirect_url is not set.
 
 
-# Modes:
+## Modes:
 
 - ip: limits the number of requests per IP address
 - user: limits the number of requests per user
@@ -72,12 +73,39 @@ The previous example will limit the number of requests to the view to 10k/min (1
 
 In the example above, the view will only allow 100 requests per hour and when the limit is reached it will redirect the user to '/rate_limit_exceeded'
 
+# "If Not" Decorator
 
-# Documentation
+## Usage
 
-For more information on how to use Django Rate Limit, please refer to the documentation at:
+To use the if_not decorator, import it from the package and apply it to a view function. The decorator accepts three parameters: condition, redirect_url and error_message.
 
-https://django-rate-limit.readthedocs.io/
+Example:
+
+```python
+from django_happy_decorators.decorators.if_not import if_not
+
+@if_not(parameter_name="mobile", raise_error_code=400, error_message="Mobile number is required")
+def send_sms_view(request):
+    # View logic goes here
+
+```
+
+The previous example will check if the request has a parameter called 'mobile'. If it doesn't, it will raise an error with the message 'Mobile number is required' and the status code 400.
+
+## Parameters
+
+- parameter_name: the name of the parameter to check
+- raise_error_code: the status code to return with the response when the condition is not met. Default is 400.
+- error_message: the error message to return with the response when the condition is not met. Default is 'The parameter {parameter_name} is required.'
+
+## Request Types:
+
+The decorator can be used with these types of requests (GET, POST, PUT, DELETE). It will check the request data based on the request type.
+
+- GET: it will check the query parameters (request.GET)
+- POST: it will check the form data (request.POST)
+- PUT: it will check the form data (request.POST)
+- DELETE: it will check the query parameters (request.GET)
 
 
 # Contributing

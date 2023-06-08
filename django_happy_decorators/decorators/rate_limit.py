@@ -47,7 +47,7 @@ def rate_limit(num_requests: int,
                     if redirect_url:
                         # redirect with a 429 status code
                         red = redirect(redirect_url)
-                        red.status_code = 429
+                        # red.status_code = 429
                         return red
                     else:
                         res = HttpResponse(error_message)

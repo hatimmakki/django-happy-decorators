@@ -2,7 +2,7 @@ from django.test import TestCase, RequestFactory
 from decorators.rate_limit import rate_limit
 from django.contrib.auth.models import User
 from django.http import HttpResponse
-    
+
 class TestRateLimit(TestCase):
     
     def setUp(self):

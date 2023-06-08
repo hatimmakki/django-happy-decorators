@@ -9,7 +9,7 @@
 project = 'Django Happy Decorators'
 copyright = '2023, Hatim Makki Hoho'
 author = 'Hatim Makki Hoho'
-release = '0.2.4'
+release = '0.2.10'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
